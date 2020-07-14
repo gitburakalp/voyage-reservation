@@ -34,95 +34,100 @@
       </section>
     </header>
     <main class="main">
-      <section class="container">
-        <div class="row">
-          <div class="col-12">
-            <label for="inpRoomNumber" class="title--xs text-color-gray ls-1">
-              Oda Numarası
-            </label>
-            <input id="inpRoomNumber" class="form-control" placeholder="3794" />
+      <form id="reservationForm">
+        <section class="container">
+          <div class="row">
+            <div class="col-12">
+              <label for="inpRoomNumber" class="title--xs text-color-gray ls-1">
+                Oda Numarası
+              </label>
+              <input id="inpRoomNumber" class="form-control" placeholder="3794" />
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <label for="inpName" class="title--xs text-color-gray ls-1">
-              Adınız
-            </label>
-            <input id="inpName" class="form-control" placeholder="Name" />
+          <div class="row">
+            <div class="col-12">
+              <label for="inpName" class="title--xs text-color-gray ls-1">
+                Adınız
+              </label>
+              <input id="inpName" class="form-control" placeholder="Name" />
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <label for="inpSecondName" class="title--xs text-color-gray ls-1">
-              2. Adınız
-            </label>
+          <div class="row">
+            <div class="col-12">
+              <label for="inpSecondName" class="title--xs text-color-gray ls-1">
+                2. Adınız
+              </label>
 
-            <input id="inpSecondName" class="form-control" placeholder="Second Name" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <label for="inpLastName" class="title--xs text-color-gray ls-1">
-              Soyadınız
-            </label>
-            <input id="inpLastName" class="form-control" placeholder="Last Name" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <label for="inpPhoneNo" class="title--xs text-color-gray ls-1">
-              Cep Numarası
-            </label>
-            <input id="inpPhoneNo" class="form-control" placeholder="Last Name" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <div class="by-gray bg-before-clock bg-after-chevron-right">
-              <label for="inpReservationTime" class="title--xs text-color-gray ls-1">
-                Saat Seçimi
-              </label>
-              <input id="inpReservationTime" class="form-control--inline" value="18:00 - 19:00" readonly />
+              <input id="inpSecondName" class="form-control" placeholder="Second Name" />
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <div class="by-gray bg-before-user bg-after-chevron-right">
-              <label for="inpAdultCount" class="title--xs text-color-gray ls-1">
-                Kişi Sayısı
+          <div class="row">
+            <div class="col-12">
+              <label for="inpLastName" class="title--xs text-color-gray ls-1">
+                Soyadınız
               </label>
-              <input id="inpAdultCount" class="form-control--inline" value="2 Kişi" readonly />
+              <input id="inpLastName" class="form-control" placeholder="Last Name" />
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <div class="by-gray bg-before-goblet bg-after-chevron-right">
-              <label id="lblSpecialDay" class="title--xs text-color-blue ls-1">
-                Özel Gününüz Mü?
+          <div class="row">
+            <div class="col-12">
+              <label for="inpPhoneNo" class="title--xs text-color-gray ls-1">
+                Cep Numarası
               </label>
+              <input id="inpPhoneNo" type="number" min="1" max="5" class="form-control" placeholder="0530 123 45 67" required/>
+              <div class="invalid-feedback">
+                Test
+                </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <div class="by-gray bg-before-plus-circle bg-after-chevron-right">
-              <label for="inpAddRoom" class="title--xs text-color-blue ls-1">
-                Rezervasyonunuza Oda Ekleyin
-              </label>
-              <input id="inpAddRoom" class="form-control--inline" value="Evet" readonly />
+          <div class="row">
+            <div class="col-12">
+              <div class="by-gray bg-before-clock bg-after-chevron-right">
+                <label for="inpReservationTime" class="title--xs text-color-gray ls-1">
+                  Saat Seçimi
+                </label>
+                <input id="inpReservationTime" class="form-control--inline" value="18:00 - 19:00" readonly />
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-10">
-            <a class="btn btn--primary text-uppercase font-size-xl">
-              Rezervasyon Yap
-            </a>
+          <div class="row">
+            <div class="col-12">
+              <div class="by-gray bg-before-user bg-after-chevron-right">
+                <label for="inpAdultCount" class="title--xs text-color-gray ls-1">
+                  Kişi Sayısı
+                </label>
+                <input id="inpAdultCount" class="form-control--inline" value="2 Kişi" readonly />
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+          <div class="row">
+            <div class="col-12">
+              <div class="by-gray bg-before-goblet bg-after-chevron-right">
+                <label id="lblSpecialDay" class="title--xs text-color-blue ls-1">
+                  Özel Gününüz Mü?
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="by-gray bg-before-plus-circle bg-after-chevron-right">
+                <label for="inpAddRoom" class="title--xs text-color-blue ls-1">
+                  Rezervasyonunuza Oda Ekleyin
+                </label>
+                <input id="inpAddRoom" class="form-control--inline" value="Evet" readonly />
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-10">
+              <input id="btnSubmit" type="submit" class="btn d-block btn--primary text-uppercase font-size-xl">
+                Rezervasyon Yap
+              </input>
+            </div>
+          </div>
+        </section>
+      </form>
     </main>
     <script src="/js/reservation.js"></script>
   </body>

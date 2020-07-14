@@ -45,3 +45,32 @@
 .ls-1 {
   letter-spacing: 0.1rem;
 }
+
+.invalid-feedback {
+  position: absolute;
+  top: 0;
+  right: 2.8rem;
+
+  display: none;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+  color: $colors--red;
+}
+
+form {
+  &.has-error {
+    input {
+      &:not(:valid) {
+        border-color: $colors--red;
+
+        + .invalid-feedback {
+          display: block;
+        }
+      }
+
+      &:valid {
+        border-color: $colors--green;
+      }
+    }
+  }
+}
