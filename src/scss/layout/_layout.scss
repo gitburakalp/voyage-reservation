@@ -1,0 +1,30 @@
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: $ff-sans-serif;
+  overflow-x: hidden;
+}
+
+$main-gutters: 2.8rem;
+
+main {
+  padding-top: $main-gutters;
+  padding-bottom: $main-gutters;
+
+  > section {
+    + section {
+      margin-top: $main-gutters;
+    }
+  }
+
+  .container {
+    > .row {
+      + .row {
+        margin-top: $main-gutters;
+      }
+    }
+  }
+}

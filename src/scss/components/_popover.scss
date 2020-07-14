@@ -1,0 +1,42 @@
+%popover {
+  position: absolute;
+  padding: 0.8rem 1rem;
+
+  width: vw(200, 375);
+  background-color: $colors--white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  top: 3.5rem;
+  right: 2.5rem;
+  border-radius: 0.2rem;
+
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+
+  transition: opacity 400ms ease;
+}
+
+[data-prop='popover-trigger'] {
+  &:hover {
+    + .popover {
+      opacity: 1;
+      visibility: visible;
+      z-index: 99;
+    }
+  }
+}
+
+.popover {
+  @extend %popover;
+
+  &--info {
+    color: $colors--red;
+
+    &-description {
+      font-family: $ff-sans-serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      letter-spacing: 0.1rem;
+    }
+  }
+}

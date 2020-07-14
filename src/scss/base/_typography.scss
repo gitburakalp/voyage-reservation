@@ -1,0 +1,87 @@
+@for $i from 1 to 7 {
+  h#{$i} {
+    margin-bottom: 0;
+  }
+}
+
+p {
+  margin-bottom: 0;
+}
+
+%title {
+  display: block;
+  font-family: $ff-sans-serif;
+  font-weight: 400 !important;
+}
+
+.title {
+  font-size: 1.6rem;
+
+  + * {
+    margin-top: 0.6rem;
+
+    &.form-control {
+      margin-top: 0.8rem;
+    }
+  }
+
+  &--sm {
+    @extend %title;
+    font-size: 1.4rem;
+
+    + * {
+      margin-top: 0.6rem;
+
+      &.form-control {
+        margin-top: 0.8rem;
+      }
+    }
+  }
+
+  &--xs {
+    @extend %title;
+    font-size: 1.2rem;
+
+    + * {
+      margin-top: 0.6rem;
+
+      &.form-control {
+        margin-top: 0.8rem;
+      }
+    }
+  }
+}
+
+.text {
+  &-center {
+    text-align: center;
+  }
+
+  &-uppercase {
+    text-transform: uppercase !important;
+  }
+
+  &-color {
+    &-gray {
+      color: $colors--gray;
+    }
+
+    &-blue {
+      color: $colors--blue;
+    }
+  }
+}
+
+.font {
+  &-weight {
+    &-medium {
+      font-weight: 500;
+    }
+  }
+
+  &-size {
+    &-xl {
+      font-size: 1.8rem !important;
+    }
+  }
+}

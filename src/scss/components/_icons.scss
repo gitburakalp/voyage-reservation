@@ -1,0 +1,117 @@
+.icons {
+  display: inline-block;
+  font-style: normal;
+
+  background-repeat: no-repeat;
+  background-image: url('/storage/icons.png');
+  background-size: 200px;
+
+  &--info {
+    width: 2.2rem;
+    height: 2.2rem;
+    background-position: 0 0;
+  }
+
+  &--prev {
+    width: 1.2rem;
+    height: 2.4rem;
+    background-position-x: -11.38rem;
+  }
+}
+
+%before-bg {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: 19.35rem;
+  }
+}
+
+%after-bg {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    background-repeat: no-repeat;
+    background-size: 19.35rem;
+  }
+}
+
+.bg {
+  &-before {
+    &-clock,
+    &-user,
+    &-goblet,
+    &-plus-circle {
+      padding-left: 1.8rem + 1rem;
+
+      &::before {
+        background-image: url('/storage/icons.png');
+      }
+    }
+
+    &-clock {
+      @extend %before-bg;
+
+      &::before {
+        width: 1.8rem;
+        height: 1.8rem;
+        background-position-x: -2rem;
+      }
+    }
+
+    &-user {
+      @extend %before-bg;
+
+      &::before {
+        width: 2.3rem;
+        height: 1.9rem;
+        background-position-x: -3.8rem;
+      }
+    }
+
+    &-goblet {
+      @extend %before-bg;
+
+      &::before {
+        background-size: 21rem;
+        width: 2.4rem;
+        height: 2.5rem;
+        background-position-x: -6.4rem;
+      }
+    }
+
+    &-plus-circle {
+      @extend %before-bg;
+
+      &::before {
+        background-size: 20rem;
+
+        width: 2.2rem;
+        height: 2.2rem;
+        background-position-x: -8.35rem;
+      }
+    }
+  }
+
+  &-after {
+    &-chevron-right {
+      @extend %after-bg;
+
+      &::after {
+        background-size: 20.05rem;
+
+        background-image: url('/storage/icons.png');
+        width: 0.8rem;
+        height: 1.6rem;
+        background-position-x: -10.575rem;
+      }
+    }
+  }
+}

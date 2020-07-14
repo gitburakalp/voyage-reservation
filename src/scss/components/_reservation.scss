@@ -1,0 +1,15 @@
+.reservation {
+  &--available {
+    position: relative;
+    background-color: $colors--green;
+
+    color: $colors--white;
+    padding: 1.3rem 1.6rem;
+
+    .icons--info {
+      position: absolute;
+      top: 0;
+      right: 2.8rem;
+    }
+  }
+}

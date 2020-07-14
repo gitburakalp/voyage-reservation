@@ -1,0 +1,47 @@
+%form-control {
+  $fcFs: 1.4rem;
+  height: auto;
+
+  font-size: $fcFs;
+  font-weight: 400;
+  line-height: 1;
+  background-clip: padding-box;
+  color: $colors--black;
+  letter-spacing: 0.1rem;
+}
+
+.form-control {
+  @extend %form-control;
+
+  $fcPy: 1.275rem;
+  $fcPl: 2rem;
+
+  display: block;
+  width: 100%;
+  padding-top: $fcPy;
+  padding-bottom: $fcPy;
+  padding-left: $fcPl;
+  border: 1px solid $colors--dirty-white;
+  border-radius: 2px;
+  background-color: $colors--white;
+
+  &--inline {
+    @extend %form-control;
+
+    display: block;
+    flex: 0 0 auto;
+    border: none;
+    line-height: 1;
+    padding: 0 0.8rem;
+    margin-top: 0;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.ls-1 {
+  letter-spacing: 0.1rem;
+}

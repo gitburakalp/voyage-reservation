@@ -1,0 +1,24 @@
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+  @return if(breakpoint-min($name, $breakpoints) == null, '', '-#{$name}');
+}
+
+@function ptToPx($value, $convertUnit) {
+  $strippedValue: $value / ($value * 0 + 1);
+
+  @if $convertUnit == 'px' {
+    @return 0px + ($strippedValue * 1.3333);
+  } @else if $convertUnit == 'em' {
+    @return 0em + ($strippedValue / 12);
+  } @else if $convertUnit == '%' {
+    @return percentage($strippedValue / 12);
+  }
+}
+
+@function vw($pxValue, $viewportView) {
+  @return $pxValue / $viewportView * 100 + vw;
+}

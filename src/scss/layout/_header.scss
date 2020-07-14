@@ -1,0 +1,21 @@
+.header {
+  position: relative;
+
+  &-menu {
+    position: relative;
+    padding-top: 2.3rem;
+    padding-bottom: 2.3rem;
+    border-bottom: 1px solid $colors--dirty-white;
+
+    .icons--prev {
+      position: absolute;
+      left: 1.6rem;
+    }
+  }
+
+  &-title {
+    font-family: $ff-sans-serif;
+    font-size: 1.2rem;
+    color: $colors--black;
+  }
+}
