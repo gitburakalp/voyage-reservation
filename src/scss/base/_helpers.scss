@@ -1,0 +1,12 @@
+%form-control {
+  $fcFs: 1.4rem;
+  height: auto;
+
+  font-size: $fcFs;
+  font-weight: 400;
+  line-height: 1;
+  background-clip: padding-box;
+  color: $colors--black;
+  letter-spacing: 0.1rem;
+  border: none;
+}

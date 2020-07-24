@@ -1,4 +1,4 @@
-$grid-gutter-width: 28px * 2;
+$grid-gutter-width: 15px * 2;
 $grid-columns: 12;
 
 $grid-breakpoints: (
@@ -31,7 +31,7 @@ $container-max-widths: (
 @mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
   @each $breakpoint, $container-max-width in $max-widths {
     @include media-breakpoint-up($breakpoint, $breakpoints) {
-      max-width: $container-max-width;
+      max-width: vw((375 - (13 + 13)), 375);
     }
   }
 }

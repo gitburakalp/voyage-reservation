@@ -1,6 +1,10 @@
 .container {
   @include make-container();
   @include make-container-max-widths();
+
+  @media (min-width: 575px) {
+    max-width: 540px !important;
+  }
 }
 
 .row {
@@ -37,10 +41,21 @@
     flex-wrap: nowrap;
     align-items: center;
 
-    > * {
+    &.has-error {
+      label {
+        color: $colors--red !important;
+      }
+    }
+
+    > *:not(input) {
       flex: 0 0 auto;
       width: auto;
       max-width: 100%;
+
+      + * {
+        margin-top: 0;
+        margin-left: 0.8rem;
+      }
     }
   }
 }

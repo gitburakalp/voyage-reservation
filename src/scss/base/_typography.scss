@@ -52,6 +52,14 @@ p {
   }
 }
 
+.description {
+  font-family: $ff-sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+  line-height: 1.47;
+  text-align: left;
+}
+
 .text {
   &-center {
     text-align: center !important;
@@ -130,4 +138,11 @@ p {
   &-1x {
     letter-spacing: 0.1rem;
   }
+}
+
+.border-bottom {
+  display: block;
+  border-bottom: 1px solid rgb(216, 216, 216);
+  padding-bottom: 0.8rem;
+  margin-top: 2rem;
 }

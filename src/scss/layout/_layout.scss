@@ -4,10 +4,11 @@ html {
 
 body {
   font-family: $ff-sans-serif;
+  color: rgb(85, 85, 85);
 }
 
 .overflow-hidden {
-  // overflow: hidden !important;
+  overflow: hidden !important;
 }
 
 $main-gutters: 2.8rem;

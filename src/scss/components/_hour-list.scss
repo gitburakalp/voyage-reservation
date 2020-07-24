@@ -10,7 +10,7 @@
   justify-content: center;
 
   > * {
-    $mw: vw(120, 375);
+    $mw: calcPercent(120, 313) * 1%;
 
     position: relative;
     min-height: 1px;

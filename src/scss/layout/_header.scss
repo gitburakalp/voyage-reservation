@@ -6,6 +6,8 @@
     padding-top: 2.3rem;
     padding-bottom: 2.3rem;
     border-bottom: 1px solid $colors--dirty-white;
+    z-index: 1000;
+    background-color: $colors--white;
 
     .icons--prev {
       position: absolute;

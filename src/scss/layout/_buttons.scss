@@ -15,7 +15,7 @@
   &--primary {
     display: block;
     color: $colors--white;
-    background-color: $colors--purple;
+    background-color: rgb(55, 25, 34);
     font-weight: 500;
     padding-top: 0.85rem;
     padding-bottom: 0.85rem;
@@ -35,4 +35,8 @@
     padding: 0.85rem 1.5rem;
     border-radius: 0.6rem;
   }
+}
+
+a {
+  cursor: pointer !important;
 }
