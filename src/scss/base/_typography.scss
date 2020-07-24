@@ -54,11 +54,23 @@ p {
 
 .text {
   &-center {
-    text-align: center;
+    text-align: center !important;
+  }
+
+  &-left {
+    text-align: left !important;
+  }
+
+  &-right {
+    text-align: right !important;
   }
 
   &-uppercase {
     text-transform: uppercase !important;
+  }
+
+  &-underline {
+    text-decoration: underline !important;
   }
 
   &-color {
@@ -75,13 +87,47 @@ p {
 .font {
   &-weight {
     &-medium {
-      font-weight: 500;
+      font-weight: 500 !important;
+    }
+
+    &-light {
+      font-weight: 300 !important;
     }
   }
 
   &-size {
+    &-sm {
+      font-size: 1.2rem !important;
+    }
+
+    &-md {
+      font-size: 1.4rem !important;
+    }
+
+    &-lg {
+      font-size: 1.6rem !important;
+    }
+
     &-xl {
       font-size: 1.8rem !important;
     }
+
+    &-2xl {
+      font-size: 2rem !important;
+    }
+
+    &-3xl {
+      font-size: 2.2rem !important;
+    }
+
+    &-4xl {
+      font-size: 2.4rem !important;
+    }
+  }
+}
+
+.letter-spacing {
+  &-1x {
+    letter-spacing: 0.1rem;
   }
 }

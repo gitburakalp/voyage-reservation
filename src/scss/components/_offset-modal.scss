@@ -1,0 +1,61 @@
+.offset-modal {
+  position: fixed;
+  top: 65px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $colors--white;
+  padding: 4rem 1.6rem;
+  transition: opacity 300ms 0s;
+
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+
+  &.is-shown {
+    opacity: 1;
+    visibility: visible;
+    z-index: 999;
+  }
+
+  .modal-header {
+    text-align: center;
+
+    + .modal-main {
+      padding-top: 4rem;
+
+      + .modal-footer {
+        padding-top: 4rem;
+      }
+    }
+  }
+
+  .modal-main {
+    .row {
+      + .row {
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  .modal-footer {
+    &.mode--passive {
+      * {
+        user-select: none;
+        pointer-events: none;
+      }
+
+      [class*='title'] {
+        opacity: 0.3;
+      }
+    }
+
+    &:not(.mode--passive) {
+      .btn--default {
+        background-color: $black;
+        color: $colors--white;
+        font-weight: bold;
+      }
+    }
+  }
+}

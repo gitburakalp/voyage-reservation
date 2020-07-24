@@ -25,4 +25,14 @@
     display: block;
     width: 100%;
   }
+
+  &--default {
+    @extend .btn;
+
+    color: rgba(55, 25, 34, 0.3);
+    font-size: 1.4rem;
+    border: 1px solid rgba(55, 25, 34, 0.3);
+    padding: 0.85rem 1.5rem;
+    border-radius: 0.6rem;
+  }
 }

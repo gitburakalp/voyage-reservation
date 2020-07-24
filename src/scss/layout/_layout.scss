@@ -1,11 +1,13 @@
 html {
   font-size: 62.5%;
-  overflow-x: hidden;
 }
 
 body {
   font-family: $ff-sans-serif;
-  overflow-x: hidden;
+}
+
+.overflow-hidden {
+  // overflow: hidden !important;
 }
 
 $main-gutters: 2.8rem;
@@ -25,6 +27,28 @@ main {
       + .row {
         margin-top: $main-gutters;
       }
+    }
+  }
+}
+
+.d-none {
+  display: none !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.op {
+  &-05 {
+    opacity: 0.5;
+  }
+}
+
+.mt {
+  @for $i from 0 to 5 {
+    &-#{$i} {
+      margin-top: $i * 0.5rem;
     }
   }
 }

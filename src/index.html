@@ -9,7 +9,7 @@
   <body>
     <header class="header">
       <div class="header-menu text-center">
-        <i class="icons icons--prev"></i>
+        <i class="icons icons--prev" data-prop="dismiss"></i>
         <h1 class="header-title">
           REZERVASYON YAP
         </h1>
@@ -74,15 +74,15 @@
               <label for="inpPhoneNo" class="title--xs text-color-gray ls-1">
                 Cep Numarası
               </label>
-              <input id="inpPhoneNo" type="number" min="1" max="5" class="form-control" placeholder="0530 123 45 67" required/>
+              <input id="inpPhoneNo" type="number" min="1" max="5" class="form-control" placeholder="0530 123 45 67" required />
               <div class="invalid-feedback">
                 Test
-                </div>
+              </div>
             </div>
           </div>
           <div class="row">
             <div class="col-12">
-              <div class="by-gray bg-before-clock bg-after-chevron-right">
+              <div class="by-gray bg-before-clock bg-after-chevron-right" data-toggle="modal" data-target=".offset-modal" data-target-section=".hour-select-section">
                 <label for="inpReservationTime" class="title--xs text-color-gray ls-1">
                   Saat Seçimi
                 </label>
@@ -92,7 +92,7 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <div class="by-gray bg-before-user bg-after-chevron-right">
+              <div class="by-gray bg-before-user bg-after-chevron-right" data-toggle="modal" data-target=".offset-modal" data-target-section=".adult-select-section">
                 <label for="inpAdultCount" class="title--xs text-color-gray ls-1">
                   Kişi Sayısı
                 </label>
@@ -102,7 +102,7 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <div class="by-gray bg-before-goblet bg-after-chevron-right">
+              <div class="by-gray bg-before-goblet bg-after-chevron-right" data-toggle="modal" data-target=".offset-modal" data-target-section=".special-day-section">
                 <label id="lblSpecialDay" class="title--xs text-color-blue ls-1">
                   Özel Gününüz Mü?
                 </label>
@@ -111,7 +111,7 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <div class="by-gray bg-before-plus-circle bg-after-chevron-right">
+              <div class="by-gray bg-before-plus-circle bg-after-chevron-right" data-toggle="modal" data-target=".offset-modal" data-target-section=".add-room-section">
                 <label for="inpAddRoom" class="title--xs text-color-blue ls-1">
                   Rezervasyonunuza Oda Ekleyin
                 </label>
@@ -121,14 +121,149 @@
           </div>
           <div class="row justify-content-center">
             <div class="col-10">
-              <input id="btnSubmit" type="submit" class="btn d-block btn--primary text-uppercase font-size-xl">
-                Rezervasyon Yap
-              </input>
+              <input id="btnSubmit" type="submit" class="btn d-block btn--primary text-uppercase font-size-xl" value="Rezervasyon Yap" />
             </div>
           </div>
         </section>
       </form>
     </main>
+
+    <div class="offset-modal">
+      <div class="modal-body">
+        <div class="hour-select-section d-none">
+          <div class="row modal-header">
+            <div class="col-12">
+              <p class="title--sm font-weight-medium letter-spacing-1x">Lütfen restorana giriş aralığınızı seçiniz.</p>
+            </div>
+          </div>
+          <div class="row modal-main">
+            <div class="col-12">
+              <ul class="hour-list">
+                <li class="hour-list-item">
+                  <a class="hour-list-link">
+                    17:00 - 18:00
+                  </a>
+                </li>
+                <li class="hour-list-item">
+                  <a class="hour-list-link">
+                    18:00 - 19:00
+                  </a>
+                </li>
+                <li class="hour-list-item">
+                  <a class="hour-list-link">
+                    19:00 - 20:00
+                  </a>
+                </li>
+                <li class="hour-list-item">
+                  <a class="hour-list-link">
+                    20:00 - 21:00
+                  </a>
+                </li>
+                <li class="hour-list-item">
+                  <a class="hour-list-link">
+                    21:00 - 22:00
+                  </a>
+                </li>
+                <li class="hour-list-item">
+                  <a class="hour-list-link">
+                    22:00 - 23:00
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="modal-footer mode--passive">
+            <div class="row justify-content-center">
+              <div class="col-10 text-right">
+                <a class="btn btn--default">
+                  Devam Et
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="adult-select-section d-none">
+          <div class="modal-header">
+            <div class="row">
+              <div class="col-12">
+                <p class="title--sm font-weight-medium letter-spacing-1x">Lütfen kişi sayısını giriniz.</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-main">
+            <div class="row align-items-center justify-content-center">
+              <div class="col-5">
+                <h4 class="title--sm">Yetişkin</h4>
+              </div>
+              <div class="col-5">
+                <div class="minus-plus-block">
+                  <span class="minus-icon" data-prop="minus"> </span>
+                  <input id="inpAdultCountValue" value="0" data-price="15" data-max="6" />
+                  <span class="plus-icon" data-prop="plus"> </span>
+                </div>
+              </div>
+            </div>
+            <div class="row align-items-center justify-content-center">
+              <div class="col-5">
+                <h4 class="title--sm">Çocuk <span class="font-size-sm font-weight-light">5-12 Yaş</span></h4>
+              </div>
+              <div class="col-5">
+                <div class="minus-plus-block">
+                  <span class="minus-icon" data-prop="minus"> </span>
+                  <input id="inpChildCountValue" value="0" data-price="10" data-max="6" />
+                  <span class="plus-icon" data-prop="plus"> </span>
+                </div>
+              </div>
+            </div>
+            <div class="row align-items-center justify-content-center">
+              <div class="col-5">
+                <h4 class="title--sm">Bebek <span class="font-size-sm font-weight-light">0- Yaş</span></h4>
+              </div>
+              <div class="col-5">
+                <div class="minus-plus-block">
+                  <span class="minus-icon" data-prop="minus"> </span>
+                  <input id="inpBabyCountValue" value="0" data-price="2" data-max="4" />
+                  <span class="plus-icon" data-prop="plus"> </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer mode--passive">
+            <div class="row justify-content-center">
+              <div class="col-10 text-right">
+                <p id="totalText" class="title title--sm letter-spacing-1x font-weight-medium">
+                  Kişi sayısı
+                </p>
+                <p class="title">Toplam <span id="spanTotalPrice" class="font-size-4xl font-weight-medium">0 €</span></p>
+                <input type="hidden" id="inpTotalPrice" />
+                <a class="btn btn--default mt-4">
+                  Devam Et
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="special-day-section d-none">
+          <div class="modal-header">
+            <div class="row">
+              <div class="col-12">
+                <p class="title--sm font-weight-medium letter-spacing-1x">Özel gününüz mü?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="add-room-section d-none">
+          <div class="modal-header">
+            <div class="row">
+              <div class="col-12">
+                <p class="title--sm font-weight-medium letter-spacing-1x">Oda Ekleyin</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/jquery.min.js"></script>
     <script src="/js/reservation.js"></script>
   </body>
 </html>
