@@ -60,6 +60,8 @@
       @extend %before-bg;
 
       &::before {
+        top: 50%;
+        transform: translateY(-50%);
         width: 1.8rem;
         height: 1.8rem;
         background-position-x: -2rem;
@@ -129,4 +131,13 @@
   width: 3rem;
   height: 3rem;
   background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='fal' data-icon='plus-circle' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' class='svg-inline--fa fa-plus-circle fa-w-16 fa-fw fa-2x'%3E%3Cpath fill='currentColor' d='M384 250v12c0 6.6-5.4 12-12 12h-98v98c0 6.6-5.4 12-12 12h-12c-6.6 0-12-5.4-12-12v-98h-98c-6.6 0-12-5.4-12-12v-12c0-6.6 5.4-12 12-12h98v-98c0-6.6 5.4-12 12-12h12c6.6 0 12 5.4 12 12v98h98c6.6 0 12 5.4 12 12zm120 6c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-32 0c0-119.9-97.3-216-216-216-119.9 0-216 97.3-216 216 0 119.9 97.3 216 216 216 119.9 0 216-97.3 216-216z' class=''%3E%3C/path%3E%3C/svg%3E");
+}
+
+.success-icon {
+  display: inline-block;
+  width: 3.2rem;
+  height: 3.2rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='60px' height='60px' viewBox='0 0 60 60' version='1.1'%3E%3C!-- Generator: sketchtool 63.1 (101010) - https://sketch.com --%3E%3Ctitle%3E7D4160BC-E744-4BF8-B25D-C078E3D82B7C%3C/title%3E%3Cdesc%3ECreated with sketchtool.%3C/desc%3E%3Cg id='Checkout' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='PAKET-Sonuç-D' transform='translate(-691.000000, -217.000000)'%3E%3Cg id='Group-25' transform='translate(379.000000, 218.000000)'%3E%3Cg id='ic_check' transform='translate(313.000000, 0.000000)'%3E%3Ccircle id='Oval' stroke='%23FFFFFF' stroke-width='2' fill='%230F6344' cx='29' cy='29' r='29'/%3E%3Cpath d='M23.086235,38.3400113 C23.2135187,38.1525945 23.3073658,37.9584498 23.4491668,37.8137063 C30.3657569,30.7544335 37.2871237,23.7001584 44.2045568,16.6417505 C44.5348013,16.3048807 44.8816236,16.0325015 45.368561,16.0029954 C45.9881207,15.965512 46.5589773,16.2817179 46.8290922,16.8451218 C47.1115702,17.4340914 47.0382346,17.9941315 46.6509512,18.508807 C46.5468015,18.6473033 46.4165207,18.7658084 46.2948566,18.889888 C38.9637281,26.3618624 31.6324123,33.8335486 24.3007219,41.3049463 C23.3983095,42.2246346 22.6105368,42.2321312 21.7131821,41.3244569 C18.3340296,37.9063575 14.9602157,34.4825876 11.5744133,31.0714083 C11.0797021,30.5728794 10.8716837,30.012551 11.0808261,29.3373697 C11.3751989,28.3869258 12.5363933,27.9954648 13.3488922,28.5586766 C13.5280634,28.6827561 13.6838197,28.8456647 13.839014,29.0025182 C16.7633545,31.9588031 19.6858217,34.9168181 22.6090382,37.8741603 C22.7292038,37.9956449 22.8533967,38.1129005 23.086235,38.3400113' id='Fill-4' fill='%23FFFFFF'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
 }

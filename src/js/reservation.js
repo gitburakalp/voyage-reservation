@@ -1,7 +1,10 @@
+var backUrl = 'https://www.google.com';
 var btnSubmit = document.querySelector('#btnSubmit');
 var reservationForm = document.querySelector('#reservationForm');
 var currency = '€';
 var lang = $('html').attr('lang');
+var reservationIsSuccess = false;
+var telRegex = /^[0,9]$/;
 
 var roomVal = {
   tr: 'ODA ',
@@ -25,12 +28,23 @@ var childValues = {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
+  checkReservationSuccess(reservationIsSuccess);
+
   btnSubmit.addEventListener('click', function (e) {
     if (reservationForm.checkValidity() === false) {
       e.preventDefault();
       e.stopPropagation();
 
       reservationForm.classList.add('has-error');
+
+      if ($('#reservationForm').hasClass('has-error')) {
+        $('html,body').animate(
+          {
+            scrollTop: $('#reservationForm input:not(:valid)').eq(0).offset().top - 100,
+          },
+          750,
+        );
+      }
 
       $('#reservationForm')
         .find('[data-target-section]')
@@ -56,37 +70,48 @@ document.addEventListener('DOMContentLoaded', function () {
   specialDayListInit();
 });
 
-var telRegex = /^[0,9]$/;
+function checkReservationSuccess(isSuccess) {
+  if (isSuccess) {
+    $('#successModal').addClass('is-shown');
+    $('html,body').addClass('overflow-hidden');
+  }
+
+  $('#successModal .btn--default').on('click', function () {
+    $('#successModal').removeClass('is-shown');
+    $('html,body').removeClass('overflow-hidden');
+  });
+}
 
 function initModals() {
-  $('[data-toggle="modal"]').each(function () {
+  var $htmlBody = $('html,body');
+  var $dismiss = $("[data-prop='dismiss']");
+
+  $('[data-toggle=modal]').on('click', function () {
     var target = $(this).data('target');
     var targetSection = $(this).data('target-section');
-    var $dismiss = $("[data-prop='dismiss']");
-    var $htmlBody = $('html,body');
 
-    $(this).on('click', function () {
-      $htmlBody.addClass('overflow-hidden');
-      $htmlBody.animate(
-        {
-          scrollTop: 0,
-        },
-        0,
-      );
+    $htmlBody.animate(
+      {
+        scrollTop: 0,
+      },
+      0,
+    );
 
-      $(target).addClass('is-shown');
-      $(target).find(targetSection).removeClass('d-none');
-    });
+    $htmlBody.addClass('overflow-hidden');
+    $(target).addClass('is-shown');
+    $(target).find(targetSection).removeClass('d-none');
+  });
 
-    $dismiss.on('click', function () {
-      if ($('.offset-modal').hasClass('is-shown')) {
-        $('.offset-modal').removeClass('is-shown');
-        clearSelectedValues();
+  $dismiss.on('click', function () {
+    if ($('.offset-modal').hasClass('is-shown')) {
+      $('.offset-modal').removeClass('is-shown');
+      clearSelectedValues();
 
-        $('.offset-modal .modal-body [class*=-section]').addClass('d-none');
-        $htmlBody.removeClass('overflow-hidden');
-      }
-    });
+      $('.offset-modal .modal-body [class*=-section]').addClass('d-none');
+      $htmlBody.removeClass('overflow-hidden');
+    } else {
+      window.location.href = backUrl;
+    }
   });
 }
 
@@ -155,8 +180,6 @@ function plusMinusInit() {
       }
 
       var adultCount = $(this).closest('[class*=-section]').find('[id*=AdultCount]').val();
-
-      console.log(adultCount);
 
       if (adultCount != 0) {
         isAdultSibling ? $(this).closest('.row').nextAll().removeClass('mode--passive') : '';
@@ -249,4 +272,18 @@ $('.modal-footer .btn--default').on('click', function () {
 
   $('.offset-modal').removeClass('is-shown');
   clearSelectedValues();
+});
+
+$('.room-section').each(function () {
+  var $this = $(this);
+
+  $(this)
+    .find('#inpRoomNo')
+    .on('focusout', function () {
+      if ($(this).val() != '') {
+        $this.addClass('is-valid');
+      } else {
+        $this.removeClass('is-valid');
+      }
+    });
 });

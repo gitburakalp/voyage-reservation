@@ -83,7 +83,7 @@
               <label for="inpPhoneNo" class="title--xs text-color-gray ls-1">
                 Cep Numarası
               </label>
-              <input id="inpPhoneNo" type="number" min="1" max="5" class="form-control" placeholder="0530 123 45 67" required />
+              <input id="inpPhoneNo" type="number" class="form-control" placeholder="0530 123 45 67" required />
               <div class="invalid-feedback">
                 Invalid Phone No
               </div>
@@ -92,7 +92,7 @@
           <div class="row">
             <div class="col-12">
               <div class="by-gray bg-before-clock bg-after-chevron-right" data-toggle="modal" data-target=".offset-modal" data-target-section=".hour-select-section">
-                <label for="inpReservationTime" class="title--xs text-color-gray ls-1">
+                <label for="inpReservationTime" class="title--xs text-color-blue ls-1">
                   Saat Seçimi
                 </label>
                 <input id="inpReservationTime" class="form-control--inline" readonly required />
@@ -102,7 +102,7 @@
           <div class="row">
             <div class="col-12">
               <div class="by-gray bg-before-user bg-after-chevron-right" data-toggle="modal" data-target=".offset-modal" data-target-section=".adult-select-section">
-                <label for="inpAdultCount" class="title--xs text-color-gray ls-1">
+                <label for="inpAdultCount" class="title--xs text-color-blue ls-1">
                   Kişi Sayısı
                 </label>
                 <input id="inpAdultCount" class="form-control--inline" readonly required />
@@ -309,7 +309,7 @@
               </div>
             </div>
             <div class="modal-main">
-              <div class="row justify-content-center">
+              <div class="row justify-content-center room-section">
                 <div class="col-12">
                   <label for="inpRoomNo" class="title--xs text-color-gray ls-1">
                     Oda numarası
@@ -372,6 +372,55 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="successModal" class="modal modal--success">
+      <div class="modal-body">
+        <div class="modal-header">
+          <i class="success-icon"></i>
+          <p class="description text-center"><span class="font-weight-medium font-size-lg">Grasias Restoran</span> için Rezervasyonunuz <span class="font-weight-medium">Oda 3879'a eklenerek</span> oluşturulmuştur.</p>
+        </div>
+        <div class="modal-main">
+          <div class="row justify-content-center">
+            <div class="col-auto">
+              <div class="bg-before-clock">
+                <p class="description">
+                  <span class="font-weight-medium font-size-xl">
+                    21:30
+                  </span>
+                  da
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-auto">
+              <div class="bg-before-user">
+                <p class="description">
+                  <span class="font-weight-medium font-size-xl">
+                    4+1
+                  </span>
+                  kişilik
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-10">
+              <div class="border-top">
+                <h2 class="font-weight-medium font-size-4xl text-center">
+                  90€
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer text-center">
+          <a class="btn btn--default">
+            Tamam
+          </a>
         </div>
       </div>
     </div>

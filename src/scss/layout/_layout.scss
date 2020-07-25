@@ -4,7 +4,7 @@ html {
 
 body {
   font-family: $ff-sans-serif;
-  color: rgb(85, 85, 85);
+  color: rgb(51, 51, 51);
 }
 
 .overflow-hidden {
@@ -52,4 +52,13 @@ main {
       margin-top: $i * 0.5rem;
     }
   }
+}
+
+.border-top {
+  border-top: 1px solid rgb(219, 215, 215);
+  padding-top: 1.6rem;
+}
+
+.d-inline-block {
+  display: inline-block !important;
 }

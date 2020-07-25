@@ -62,6 +62,14 @@
       }
     }
   }
+
+  .room-section {
+    &:not(.is-valid) {
+      ~ * {
+        display: none;
+      }
+    }
+  }
 }
 
 .mode--passive {
