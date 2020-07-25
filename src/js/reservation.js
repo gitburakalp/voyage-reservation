@@ -89,6 +89,9 @@ function initModals() {
   $('[data-toggle=modal]').on('click', function () {
     var target = $(this).data('target');
     var targetSection = $(this).data('target-section');
+    var title = $(this).find('label').text().trim();
+
+    $('.header-title').text(title);
 
     $htmlBody.animate(
       {
@@ -104,6 +107,7 @@ function initModals() {
 
   $dismiss.on('click', function () {
     if ($('.offset-modal').hasClass('is-shown')) {
+      $('.header-title').text('REZERVASYON YAP');
       $('.offset-modal').removeClass('is-shown');
       clearSelectedValues();
 
