@@ -3,7 +3,7 @@
   font-style: normal;
 
   background-repeat: no-repeat;
-  background-image: url('/storage/icons.png');
+  background-image: url($storageUrl + '/icons.png');
   background-size: 200px;
 
   &--info {
@@ -52,7 +52,7 @@
       padding-left: 1.8rem + 1rem;
 
       &::before {
-        background-image: url('/storage/icons.png');
+        background-image: url($storageUrl + '/icons.png');
       }
     }
 
@@ -116,7 +116,7 @@
       &::after {
         background-size: 20.05rem;
 
-        background-image: url('/storage/icons.png');
+        background-image: url($storageUrl + '/icons.png');
         width: 0.8rem;
         height: 1.6rem;
         background-position-x: -10.575rem;
