@@ -13,6 +13,14 @@
   border-radius: 2px;
   background-color: $colors--white;
 
+  @at-root select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='far' data-icon='angle-down' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='currentColor' d='M151.5 347.8L3.5 201c-4.7-4.7-4.7-12.3 0-17l19.8-19.8c4.7-4.7 12.3-4.7 17 0L160 282.7l119.7-118.5c4.7-4.7 12.3-4.7 17 0l19.8 19.8c4.7 4.7 4.7 12.3 0 17l-148 146.8c-4.7 4.7-12.3 4.7-17 0z'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 1rem;
+    background-position: calc(100% - 1rem);
+  }
+
   &--inline {
     @extend %form-control;
 
@@ -45,6 +53,13 @@
   color: $colors--red;
 }
 
+.error-message {
+  display: none;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+  color: $colors--red;
+}
+
 form {
   &.has-error {
     input {
@@ -61,4 +76,10 @@ form {
       }
     }
   }
+}
+
+#inpAddRoomVal {
+  position: absolute;
+  z-index: -1;
+  left: -9999px;
 }

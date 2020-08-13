@@ -6,6 +6,8 @@ var lang = $('html').attr('lang');
 var reservationIsSuccess = false;
 var telRegex = /^[0,9]$/;
 
+var isBookable = false;
+
 var roomVal = {
   tr: 'ODA ',
   en: 'ROOM ',
@@ -30,28 +32,41 @@ var childValues = {
 document.addEventListener('DOMContentLoaded', function () {
   checkReservationSuccess(reservationIsSuccess);
 
+  isBookable ? $('.hidden-area').addClass('is-shown') : $('.hidden-area').removeClass('is-shown');
+
   btnSubmit.addEventListener('click', function (e) {
-    if (reservationForm.checkValidity() === false) {
-      e.preventDefault();
-      e.stopPropagation();
+    e.preventDefault();
+    e.stopPropagation();
 
-      reservationForm.classList.add('has-error');
+    if (isBookable) {
+      $('.error-message').hide(200);
+      $('.hidden-area').addClass('is-shown');
 
-      if ($('#reservationForm').hasClass('has-error')) {
-        $('html,body').animate(
-          {
-            scrollTop: $('#reservationForm input:not(:valid)').eq(0).offset().top - 100,
-          },
-          750,
-        );
+      if (reservationForm.checkValidity() === false) {
+        reservationForm.classList.add('has-error');
+
+        if ($('#reservationForm').hasClass('has-error')) {
+          $('html,body').animate(
+            {
+              scrollTop: $('#reservationForm input:not(:valid)').eq(0).offset().top - 100,
+            },
+            750,
+          );
+        }
+
+        $('#reservationForm')
+          .find('[data-target-section]')
+          .each(function () {
+            $(this).find('input:not(.valid)').length != 0 ? $(this).addClass('has-error') : '';
+          });
+      } else {
+        $(reservationForm).submit();
       }
-
-      $('#reservationForm')
-        .find('[data-target-section]')
-        .each(function () {
-          $(this).find('input:not(.valid)').length != 0 ? $(this).addClass('has-error') : '';
-        });
+    } else {
+      $('.error-message').show(200);
     }
+
+    isBookable ? $('.hidden-area').addClass('is-shown') : $('.hidden-area').removeClass('is-shown');
 
     $('#reservationForm')
       .find('[data-target-section]')
@@ -235,6 +250,10 @@ function clearSelectedValues() {
     });
 }
 
+function daysInMonth(month, year) {
+  return new Date(year, month, 0).getDate();
+}
+
 $('.modal-footer .btn--default').on('click', function () {
   var type = $(this).closest('[class*=-section]').attr('class');
   var selectedVal = '';
@@ -290,4 +309,52 @@ $('.room-section').each(function () {
         $this.removeClass('is-valid');
       }
     });
+});
+
+$('[data-readonly="true"]').on('focus', function () {
+  $(this).blur();
+});
+
+$('[data-readonly="true"]').on('keypress', function () {
+  return false;
+});
+
+$('.dateRow').each(function () {
+  var $birthdateDays = $('#selectBirthdateDay');
+  var $birthdateMonth = $('#selectBirthdateMonth');
+  var $birthdateYear = $('#selectBirthdateYear');
+
+  var thisMonth = new Date().getMonth() + 1;
+  var thisYear = new Date().getFullYear() - 18;
+
+  $birthdateMonth.val(thisMonth);
+  $birthdateYear.val(thisYear);
+
+  function fillDays(month, year) {
+    var thisDays = daysInMonth(month, year);
+
+    for (let i = 1; i < thisDays + 1; i++) {
+      $birthdateDays.append(`<option value="${i}">${i}</option>`);
+    }
+  }
+
+  fillDays(thisMonth, thisYear);
+
+  $birthdateMonth.change(function () {
+    selectedMonth = $(this).val();
+    selectedYear = $birthdateYear.val();
+
+    $birthdateDays.empty();
+
+    fillDays(selectedMonth, selectedYear);
+  });
+
+  $birthdateYear.change(function () {
+    selectedMonth = $birthdateMonth.val();
+    selectedYear = $(this).val();
+
+    $birthdateDays.empty();
+
+    fillDays(selectedMonth, selectedYear);
+  });
 });

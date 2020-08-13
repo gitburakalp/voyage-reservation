@@ -8,12 +8,6 @@
   </head>
   <body>
     <header class="header">
-      <div class="header-menu text-center">
-        <i class="icons icons--prev" data-prop="dismiss"></i>
-        <h1 class="header-title">
-          REZERVASYON YAP
-        </h1>
-      </div>
       <section class="reservation--available">
         <div class="row">
           <div class="col">
@@ -60,15 +54,6 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <label for="inpSecondName" class="title--xs text-color-gray ls-1">
-                2. Adınız
-              </label>
-
-              <input id="inpSecondName" class="form-control" placeholder="Second Name" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
               <label for="inpLastName" class="title--xs text-color-gray ls-1">
                 Soyadınız
               </label>
@@ -78,6 +63,40 @@
               </div>
             </div>
           </div>
+          <div class="row dateRow">
+            <div class="col-12 mb-3">
+              <label for="lblBirthdate" class="title--xs text-color-gray ls-1"> Doğum Tarihiniz </label>
+            </div>
+            <div class="col">
+              <select id="selectBirthdateDay" class="form-control"> </select>
+            </div>
+            <div class="col">
+              <select id="selectBirthdateMonth" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+            </div>
+            <div class="col">
+              <select id="selectBirthdateYear" class="form-control">
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+              </select>
+            </div>
+          </div>
+
           <div class="row">
             <div class="col-12">
               <label for="inpPhoneNo" class="title--xs text-color-gray ls-1">
@@ -89,48 +108,55 @@
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="by-gray bg-before-clock bg-after-chevron-right" data-toggle="modal" data-target=".offset-modal" data-target-section=".hour-select-section">
-                <label for="inpReservationTime" class="title--xs text-color-blue ls-1">
-                  Saat Seçimi
-                </label>
-                <input id="inpReservationTime" class="form-control--inline" readonly required />
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="by-gray bg-before-user bg-after-chevron-right" data-toggle="modal" data-target=".offset-modal" data-target-section=".adult-select-section">
-                <label for="inpAdultCount" class="title--xs text-color-blue ls-1">
-                  Kişi Sayısı
-                </label>
-                <input id="inpAdultCount" class="form-control--inline" readonly required />
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="by-gray bg-before-goblet bg-after-chevron-right" data-toggle="modal" data-target=".offset-modal" data-target-section=".special-day-section">
-                <label id="lblSpecialDay" class="title--xs text-color-blue ls-1">
-                  Özel Gününüz Mü?
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="by-gray bg-before-plus-circle bg-after-chevron-right" data-toggle="modal" data-target=".offset-modal" data-target-section=".add-room-section">
-                <input id="inpAddRoomVal" type="hidden" required />
 
-                <label id="lblAddRoom" class="title--xs text-color-blue ls-1">
-                  Rezervasyonunuza Oda Ekleyin
-                </label>
+          <div class="hidden-area">
+            <div class="row">
+              <div class="col-12">
+                <div class="by-gray bg-before-clock bg-after-chevron-right" data-toggle="modal" data-target=".offset-modal" data-target-section=".hour-select-section">
+                  <label for="inpReservationTime" class="title--xs text-color-blue ls-1">
+                    Saat Seçimi
+                  </label>
+                  <input id="inpReservationTime" class="form-control--inline" required data-readonly="true" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="by-gray bg-before-user bg-after-chevron-right" data-toggle="modal" data-target=".offset-modal" data-target-section=".adult-select-section">
+                  <label for="inpAdultCount" class="title--xs text-color-blue ls-1">
+                    Kişi Sayısı
+                  </label>
+                  <input id="inpAdultCount" class="form-control--inline" required data-readonly="true" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="by-gray bg-before-goblet bg-after-chevron-right" data-toggle="modal" data-target=".offset-modal" data-target-section=".special-day-section">
+                  <label id="lblSpecialDay" class="title--xs text-color-blue ls-1">
+                    Özel Gününüz Mü?
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="by-gray bg-before-plus-circle bg-after-chevron-right" data-toggle="modal" data-target=".offset-modal" data-target-section=".add-room-section">
+                  <input id="inpAddRoomVal" type="hidden" required data-readonly="true" />
+
+                  <label id="lblAddRoom" class="title--xs text-color-blue ls-1">
+                    Rezervasyonunuza Oda Ekleyin
+                  </label>
+                </div>
               </div>
             </div>
           </div>
+
           <div id="submitButtonRow" class="row justify-content-center">
             <div class="col-10">
+              <p class="error-message text-center mb-3">
+                <b>Error Message</b>
+              </p>
               <input id="btnSubmit" type="submit" class="btn d-block btn--primary text-uppercase font-size-xl" value="Rezervasyon Yap" />
             </div>
           </div>
@@ -424,6 +450,7 @@
         </div>
       </div>
     </div>
+
     <script src="js/jquery.min.js"></script>
     <script src="js/reservation.js"></script>
   </body>
