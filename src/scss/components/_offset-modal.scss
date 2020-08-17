@@ -44,7 +44,7 @@
 
   .modal-footer {
     &.mode--passive {
-      * {
+      .continue {
         user-select: none;
         pointer-events: none;
       }
@@ -70,10 +70,4 @@
       }
     }
   }
-}
-
-.mode--passive {
-  opacity: 0.6;
-  user-select: none;
-  pointer-events: none;
 }

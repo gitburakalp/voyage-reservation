@@ -21,6 +21,15 @@
     padding-bottom: 0.85rem;
   }
 
+  &--pri {
+    display: inline-block;
+    color: $colors--white !important;
+    background-color: #a51616 !important;
+    font-weight: 500;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+  }
+
   &.d-block {
     display: block;
     width: 100%;
