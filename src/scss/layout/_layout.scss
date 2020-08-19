@@ -61,6 +61,10 @@ main {
   align-items: center !important;
 }
 
+.align-items-end {
+  align-items: flex-end !important;
+}
+
 .op {
   &-05 {
     opacity: 0.5;
@@ -70,7 +74,7 @@ main {
 .mt {
   @for $i from 0 to 5 {
     &-#{$i} {
-      margin-top: $i * 0.5rem;
+      margin-top: $i * 0.5rem !important;
     }
   }
 }
@@ -86,4 +90,29 @@ main {
 
 .mb-3 {
   margin-bottom: 0.8rem;
+}
+
+.p {
+  @for $i from 1 to 5 {
+    &l-#{$i} {
+      padding-left: $i * 0.5rem !important;
+    }
+
+    &r-#{$i} {
+      padding-right: $i * 0.5rem !important;
+    }
+  }
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+
+  > [class*='col'] {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
 }

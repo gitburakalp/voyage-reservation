@@ -6,7 +6,7 @@ var lang = $('html').attr('lang');
 var reservationIsSuccess = false;
 var telRegex = /^[0,9]$/;
 
-var isBookable = false;
+var isBookable = true;
 
 var roomVal = {
   tr: 'ODA ',

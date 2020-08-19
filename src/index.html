@@ -219,7 +219,7 @@
               </div>
             </div>
           </div>
-          <div class="adult-select-section d-none">
+          <div class="adult-select-section">
             <div class="modal-header">
               <div class="row">
                 <div class="col-12">
@@ -264,18 +264,49 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="modal-footer mode--passive">
-              <div class="row justify-content-center">
-                <div class="col-10 text-right">
-                  <p id="totalText" class="title title--sm letter-spacing-1x font-weight-medium">
-                    Kişi sayısı
-                  </p>
-                  <p class="title">Toplam <span id="spanTotalPrice" class="font-size-4xl font-weight-medium">0 €</span></p>
-                  <input type="hidden" id="inpTotalPrice" />
-                  <a class="btn btn--default mt-4">
-                    Devam Et
-                  </a>
+              <div class="form-row align-items-end mt-3">
+                <div class="col">
+                  <div class="row justify-content-center">
+                    <div class="col-10">
+                      <div class="custom-check">
+                        <input id="chkBabyChair" type="checkbox" />
+                        <label for="chkBabyChair">Bebek Koltuğu</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content-center mt-3">
+                    <div class="col-10">
+                      <div class="custom-check">
+                        <input id="chkVegetarian" type="checkbox" />
+                        <label for="chkVegetarian">Vejeteryanım</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content-center mt-3">
+                    <div class="col-10">
+                      <div class="custom-check">
+                        <input id="chkHaveFoodAllergy" type="checkbox" />
+                        <label for="chkHaveFoodAllergy">Besin Alerjim Var</label>
+                        <textarea id="txtFoodAllergyNote" class="form-control mt-3" rows="3" placeholder="Neye alerjiniz bulunmaktadır?"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-5">
+                  <div class="modal-footer mode--passive">
+                    <div class="row justify-content-center">
+                      <div class="col-10 text-right">
+                        <p id="totalText" class="title title--sm letter-spacing-1x font-weight-medium">
+                          Kişi sayısı
+                        </p>
+                        <p class="title">Toplam <span id="spanTotalPrice" class="font-size-4xl font-weight-medium">0 €</span></p>
+                        <input type="hidden" id="inpTotalPrice" />
+                        <a class="btn btn--default mt-4">
+                          Devam Et
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -453,5 +484,8 @@
 
     <script src="js/jquery.min.js"></script>
     <script src="js/reservation.js"></script>
+    <script>
+      $('.offset-modal').addClass('is-shown');
+    </script>
   </body>
 </html>
