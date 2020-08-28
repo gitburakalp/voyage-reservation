@@ -1,491 +1,501 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <title>Reservation</title>
-    <link rel="stylesheet" href="css/main.min.css" />
-  </head>
-  <body>
-    <header class="header">
-      <section class="reservation--available">
-        <div class="row">
-          <div class="col">
-            <h4 class="title title--sm">
-              Rezervasyon Yapılabilecek Tarih
-            </h4>
-            <h2 class="title font-weight-medium"><span class="text-uppercase">15 MAYIS 2020</span>, Cumartesi</h2>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Reservation</title>
+  <link rel="stylesheet" href="css/main.min.css" />
+</head>
+
+<body class="loader">
+  <header class="header">
+    <section class="reservation--available">
+      <div class="row">
+        <div class="col">
+          <h4 class="title title--sm">
+            Rezervasyon Yapılabilecek Tarih
+          </h4>
+          <h2 class="title font-weight-medium"><span class="text-uppercase">15 MAYIS 2020</span>, Cumartesi</h2>
+        </div>
+        <div class="col-auto">
+          <i class="icons icons--info" data-prop="popover-trigger"></i>
+          <div class="popover popover--info">
+            <p class="popover--info-description">
+              Reservasyonlar yalnızca aynı güne yapılabilmektedir
+            </p>
           </div>
-          <div class="col-auto">
-            <i class="icons icons--info" data-prop="popover-trigger"></i>
-            <div class="popover popover--info">
-              <p class="popover--info-description">
-                Reservasyonlar yalnızca aynı güne yapılabilmektedir
-              </p>
+        </div>
+      </div>
+    </section>
+  </header>
+  <main class="main">
+    <form id="reservationForm">
+      <section class="container reservationForm">
+        <div class="row">
+          <div class="col-12">
+            <label for="inpRoomNumber" class="title--xs text-color-gray ls-1">
+              Oda Numarası
+            </label>
+            <input id="inpRoomNumber" class="form-control" placeholder="3794" required />
+            <div class="invalid-feedback">
+              Please enter room number
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-12">
+            <label for="inpName" class="title--xs text-color-gray ls-1">
+              Adınız
+            </label>
+            <input id="inpName" class="form-control" placeholder="Name" required />
+            <div class="invalid-feedback">
+              Please enter first name
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <label for="inpLastName" class="title--xs text-color-gray ls-1">
+              Soyadınız
+            </label>
+            <input id="inpLastName" class="form-control" placeholder="Last Name" required />
+            <div class="invalid-feedback">
+              Please enter last name
+            </div>
+          </div>
+        </div>
+        <div class="row dateRow">
+          <div class="col-12 mb-3">
+            <label for="lblBirthdate" class="title--xs text-color-gray ls-1"> Doğum Tarihiniz </label>
+          </div>
+          <div class="col">
+            <select id="selectBirthdateDay" class="form-control"> </select>
+          </div>
+          <div class="col">
+            <select id="selectBirthdateMonth" class="form-control">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+          </div>
+          <div class="col">
+            <select id="selectBirthdateYear" class="form-control">
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <label for="inpPhoneNo" class="title--xs text-color-gray ls-1">
+              Cep Numarası
+            </label>
+            <input id="inpPhoneNo" type="number" class="form-control" placeholder="0530 123 45 67" required />
+            <div class="invalid-feedback">
+              Invalid Phone No
+            </div>
+          </div>
+        </div>
+
+        <div class="hidden-area">
+          <div class="row">
+            <div class="col-12">
+              <div class="by-gray bg-before-clock bg-after-chevron-right" data-toggle="modal"
+                data-target=".offset-modal" data-target-section=".hour-select-section">
+                <label for="inpReservationTime" class="title--xs text-color-blue ls-1">
+                  Saat Seçimi
+                </label>
+                <input id="inpReservationTime" class="form-control--inline" required data-readonly="true" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="by-gray bg-before-user bg-after-chevron-right" data-toggle="modal" data-target=".offset-modal"
+                data-target-section=".adult-select-section">
+                <label for="inpAdultCount" class="title--xs text-color-blue ls-1">
+                  Kişi Sayısı
+                </label>
+                <input id="inpAdultCount" class="form-control--inline" required data-readonly="true" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="by-gray bg-before-goblet bg-after-chevron-right" data-toggle="modal"
+                data-target=".offset-modal" data-target-section=".special-day-section">
+                <label id="lblSpecialDay" class="title--xs text-color-blue ls-1">
+                  Özel Gününüz Mü?
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="by-gray bg-before-plus-circle bg-after-chevron-right" data-toggle="modal"
+                data-target=".offset-modal" data-target-section=".add-room-section">
+                <input id="inpAddRoomVal" type="hidden" required data-readonly="true" />
+
+                <label id="lblAddRoom" class="title--xs text-color-blue ls-1">
+                  Rezervasyonunuza Oda Ekleyin
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="submitButtonRow" class="row justify-content-center">
+          <div class="col-10">
+            <p class="error-message text-center mb-3">
+              <b>Error Message</b>
+            </p>
+            <input id="btnSubmit" type="submit" class="btn d-block btn--primary text-uppercase font-size-xl"
+              value="Rezervasyon Yap" />
+          </div>
+        </div>
       </section>
-    </header>
-    <main class="main">
-      <form id="reservationForm">
-        <section class="container reservationForm">
-          <div class="row">
-            <div class="col-12">
-              <label for="inpRoomNumber" class="title--xs text-color-gray ls-1">
-                Oda Numarası
-              </label>
-              <input id="inpRoomNumber" class="form-control" placeholder="3794" required />
-              <div class="invalid-feedback">
-                Please enter room number
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <label for="inpName" class="title--xs text-color-gray ls-1">
-                Adınız
-              </label>
-              <input id="inpName" class="form-control" placeholder="Name" required />
-              <div class="invalid-feedback">
-                Please enter first name
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <label for="inpLastName" class="title--xs text-color-gray ls-1">
-                Soyadınız
-              </label>
-              <input id="inpLastName" class="form-control" placeholder="Last Name" required />
-              <div class="invalid-feedback">
-                Please enter last name
-              </div>
-            </div>
-          </div>
-          <div class="row dateRow">
-            <div class="col-12 mb-3">
-              <label for="lblBirthdate" class="title--xs text-color-gray ls-1"> Doğum Tarihiniz </label>
-            </div>
-            <div class="col">
-              <select id="selectBirthdateDay" class="form-control"> </select>
-            </div>
-            <div class="col">
-              <select id="selectBirthdateMonth" class="form-control">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-              </select>
-            </div>
-            <div class="col">
-              <select id="selectBirthdateYear" class="form-control">
-                <option value="2020">2020</option>
-                <option value="2021">2021</option>
-                <option value="2022">2022</option>
-                <option value="2023">2023</option>
-                <option value="2024">2024</option>
-              </select>
-            </div>
-          </div>
+    </form>
+  </main>
 
-          <div class="row">
+  <div class="offset-modal">
+    <div class="modal-body">
+      <div class="container">
+        <div class="hour-select-section d-none">
+          <div class="row modal-header">
             <div class="col-12">
-              <label for="inpPhoneNo" class="title--xs text-color-gray ls-1">
-                Cep Numarası
-              </label>
-              <input id="inpPhoneNo" type="number" class="form-control" placeholder="0530 123 45 67" required />
-              <div class="invalid-feedback">
-                Invalid Phone No
+              <p class="title--sm font-weight-medium letter-spacing-1x">Lütfen restorana giriş aralığınızı seçiniz.</p>
+            </div>
+          </div>
+          <div class="row modal-main">
+            <div class="col-12">
+              <ul class="hour-list">
+                <li class="hour-list-item">
+                  <a class="hour-list-link">
+                    17:00 - 18:00
+                  </a>
+                </li>
+                <li class="hour-list-item">
+                  <a class="hour-list-link">
+                    18:00 - 19:00
+                  </a>
+                </li>
+                <li class="hour-list-item">
+                  <a class="hour-list-link">
+                    19:00 - 20:00
+                  </a>
+                </li>
+                <li class="hour-list-item">
+                  <a class="hour-list-link">
+                    20:00 - 21:00
+                  </a>
+                </li>
+                <li class="hour-list-item">
+                  <a class="hour-list-link">
+                    21:00 - 22:00
+                  </a>
+                </li>
+                <li class="hour-list-item">
+                  <a class="hour-list-link">
+                    22:00 - 23:00
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="modal-footer mode--passive">
+            <div class="row justify-content-center">
+              <div class="col-10 text-right">
+                <a class="btn btn--default">
+                  Devam Et
+                </a>
               </div>
             </div>
           </div>
-
-          <div class="hidden-area">
+        </div>
+        <div class="adult-select-section">
+          <div class="modal-header">
             <div class="row">
               <div class="col-12">
-                <div class="by-gray bg-before-clock bg-after-chevron-right" data-toggle="modal" data-target=".offset-modal" data-target-section=".hour-select-section">
-                  <label for="inpReservationTime" class="title--xs text-color-blue ls-1">
-                    Saat Seçimi
-                  </label>
-                  <input id="inpReservationTime" class="form-control--inline" required data-readonly="true" />
+                <p class="title--sm font-weight-medium letter-spacing-1x">Lütfen kişi sayısını giriniz.</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-main">
+            <div class="row align-items-center justify-content-center">
+              <div class="col-5">
+                <h4 class="title--sm">Yetişkin</h4>
+              </div>
+              <div class="col-5">
+                <div class="minus-plus-block">
+                  <span class="minus-icon" data-prop="minus"> </span>
+                  <input id="inpAdultCountValue" value="0" data-price="15" data-max="6" />
+                  <span class="plus-icon" data-prop="plus"> </span>
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-12">
-                <div class="by-gray bg-before-user bg-after-chevron-right" data-toggle="modal" data-target=".offset-modal" data-target-section=".adult-select-section">
-                  <label for="inpAdultCount" class="title--xs text-color-blue ls-1">
-                    Kişi Sayısı
-                  </label>
-                  <input id="inpAdultCount" class="form-control--inline" required data-readonly="true" />
+            <div class="row align-items-center justify-content-center">
+              <div class="col-5">
+                <h4 class="title--sm">Çocuk <span class="font-size-sm font-weight-light">5-12 Yaş</span></h4>
+              </div>
+              <div class="col-5">
+                <div class="minus-plus-block">
+                  <span class="minus-icon" data-prop="minus"> </span>
+                  <input id="inpChildCountValue" value="0" data-price="10" data-max="6" />
+                  <span class="plus-icon" data-prop="plus"> </span>
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-12">
-                <div class="by-gray bg-before-goblet bg-after-chevron-right" data-toggle="modal" data-target=".offset-modal" data-target-section=".special-day-section">
-                  <label id="lblSpecialDay" class="title--xs text-color-blue ls-1">
-                    Özel Gününüz Mü?
-                  </label>
+            <div class="row align-items-center justify-content-center">
+              <div class="col-5">
+                <h4 class="title--sm">Bebek <span class="font-size-sm font-weight-light">0- Yaş</span></h4>
+              </div>
+              <div class="col-5">
+                <div class="minus-plus-block">
+                  <span class="minus-icon" data-prop="minus"> </span>
+                  <input id="inpBabyCountValue" value="0" data-price="2" data-max="4" />
+                  <span class="plus-icon" data-prop="plus"> </span>
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-12">
-                <div class="by-gray bg-before-plus-circle bg-after-chevron-right" data-toggle="modal" data-target=".offset-modal" data-target-section=".add-room-section">
-                  <input id="inpAddRoomVal" type="hidden" required data-readonly="true" />
-
-                  <label id="lblAddRoom" class="title--xs text-color-blue ls-1">
-                    Rezervasyonunuza Oda Ekleyin
-                  </label>
+            <div class="form-row align-items-end mt-3">
+              <div class="col">
+                <div class="row justify-content-center">
+                  <div class="col-10">
+                    <div class="custom-check">
+                      <input id="chkBabyChair" type="checkbox" />
+                      <label for="chkBabyChair">Bebek Koltuğu</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                  <div class="col-10">
+                    <div class="custom-check">
+                      <input id="chkVegetarian" type="checkbox" />
+                      <label for="chkVegetarian">Vejeteryanım</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                  <div class="col-10">
+                    <div class="custom-check">
+                      <input id="chkHaveFoodAllergy" type="checkbox" />
+                      <label for="chkHaveFoodAllergy">Besin Alerjim Var</label>
+                      <textarea id="txtFoodAllergyNote" class="form-control mt-3" rows="3"
+                        placeholder="Neye alerjiniz bulunmaktadır?"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-5">
+                <div class="modal-footer mode--passive">
+                  <div class="row justify-content-center">
+                    <div class="col-10 text-right">
+                      <p id="totalText" class="title title--sm letter-spacing-1x font-weight-medium">
+                        Kişi sayısı
+                      </p>
+                      <p class="title">Toplam <span id="spanTotalPrice" class="font-size-4xl font-weight-medium">0
+                          €</span></p>
+                      <input type="hidden" id="inpTotalPrice" />
+                      <a class="btn btn--default mt-4">
+                        Devam Et
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div id="submitButtonRow" class="row justify-content-center">
-            <div class="col-10">
-              <p class="error-message text-center mb-3">
-                <b>Error Message</b>
-              </p>
-              <input id="btnSubmit" type="submit" class="btn d-block btn--primary text-uppercase font-size-xl" value="Rezervasyon Yap" />
-            </div>
-          </div>
-        </section>
-      </form>
-    </main>
-
-    <div class="offset-modal">
-      <div class="modal-body">
-        <div class="container">
-          <div class="hour-select-section d-none">
-            <div class="row modal-header">
+        </div>
+        <div class="special-day-section d-none">
+          <div class="modal-header">
+            <div class="row">
               <div class="col-12">
-                <p class="title--sm font-weight-medium letter-spacing-1x">Lütfen restorana giriş aralığınızı seçiniz.</p>
+                <i class="goblet-icon bg-before-goblet"></i>
+                <p class="title--sm font-weight-medium letter-spacing-1x">Özel Gününüz mü?</p>
               </div>
             </div>
-            <div class="row modal-main">
-              <div class="col-12">
-                <ul class="hour-list">
-                  <li class="hour-list-item">
-                    <a class="hour-list-link">
-                      17:00 - 18:00
+          </div>
+          <div class="modal-main">
+            <div class="row justify-content-center">
+              <div class="col-7">
+                <ul class="special-day-list">
+                  <li class="special-day-list-item">
+                    <a class="special-day-list-link">
+                      DOĞUM GÜNÜ
                     </a>
                   </li>
-                  <li class="hour-list-item">
-                    <a class="hour-list-link">
-                      18:00 - 19:00
+                  <li class="special-day-list-item">
+                    <a class="special-day-list-link">
+                      BALAYI
                     </a>
                   </li>
-                  <li class="hour-list-item">
-                    <a class="hour-list-link">
-                      19:00 - 20:00
-                    </a>
-                  </li>
-                  <li class="hour-list-item">
-                    <a class="hour-list-link">
-                      20:00 - 21:00
-                    </a>
-                  </li>
-                  <li class="hour-list-item">
-                    <a class="hour-list-link">
-                      21:00 - 22:00
-                    </a>
-                  </li>
-                  <li class="hour-list-item">
-                    <a class="hour-list-link">
-                      22:00 - 23:00
+                  <li class="special-day-list-item">
+                    <a class="special-day-list-link">
+                      EVLİLİK YILDÖNÜMÜ
                     </a>
                   </li>
                 </ul>
               </div>
             </div>
-            <div class="modal-footer mode--passive">
-              <div class="row justify-content-center">
-                <div class="col-10 text-right">
-                  <a class="btn btn--default">
-                    Devam Et
-                  </a>
-                </div>
+          </div>
+          <div class="modal-footer mode--passive">
+            <div class="row justify-content-center">
+              <div class="col-12 text-center">
+                <a class="btn btn--default">
+                  Devam Et
+                </a>
               </div>
             </div>
           </div>
-          <div class="adult-select-section">
-            <div class="modal-header">
-              <div class="row">
-                <div class="col-12">
-                  <p class="title--sm font-weight-medium letter-spacing-1x">Lütfen kişi sayısını giriniz.</p>
-                </div>
-              </div>
-            </div>
-            <div class="modal-main">
-              <div class="row align-items-center justify-content-center">
-                <div class="col-5">
-                  <h4 class="title--sm">Yetişkin</h4>
-                </div>
-                <div class="col-5">
-                  <div class="minus-plus-block">
-                    <span class="minus-icon" data-prop="minus"> </span>
-                    <input id="inpAdultCountValue" value="0" data-price="15" data-max="6" />
-                    <span class="plus-icon" data-prop="plus"> </span>
-                  </div>
-                </div>
-              </div>
-              <div class="row align-items-center justify-content-center">
-                <div class="col-5">
-                  <h4 class="title--sm">Çocuk <span class="font-size-sm font-weight-light">5-12 Yaş</span></h4>
-                </div>
-                <div class="col-5">
-                  <div class="minus-plus-block">
-                    <span class="minus-icon" data-prop="minus"> </span>
-                    <input id="inpChildCountValue" value="0" data-price="10" data-max="6" />
-                    <span class="plus-icon" data-prop="plus"> </span>
-                  </div>
-                </div>
-              </div>
-              <div class="row align-items-center justify-content-center">
-                <div class="col-5">
-                  <h4 class="title--sm">Bebek <span class="font-size-sm font-weight-light">0- Yaş</span></h4>
-                </div>
-                <div class="col-5">
-                  <div class="minus-plus-block">
-                    <span class="minus-icon" data-prop="minus"> </span>
-                    <input id="inpBabyCountValue" value="0" data-price="2" data-max="4" />
-                    <span class="plus-icon" data-prop="plus"> </span>
-                  </div>
-                </div>
-              </div>
-              <div class="form-row align-items-end mt-3">
-                <div class="col">
-                  <div class="row justify-content-center">
-                    <div class="col-10">
-                      <div class="custom-check">
-                        <input id="chkBabyChair" type="checkbox" />
-                        <label for="chkBabyChair">Bebek Koltuğu</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row justify-content-center mt-3">
-                    <div class="col-10">
-                      <div class="custom-check">
-                        <input id="chkVegetarian" type="checkbox" />
-                        <label for="chkVegetarian">Vejeteryanım</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row justify-content-center mt-3">
-                    <div class="col-10">
-                      <div class="custom-check">
-                        <input id="chkHaveFoodAllergy" type="checkbox" />
-                        <label for="chkHaveFoodAllergy">Besin Alerjim Var</label>
-                        <textarea id="txtFoodAllergyNote" class="form-control mt-3" rows="3" placeholder="Neye alerjiniz bulunmaktadır?"></textarea>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-5">
-                  <div class="modal-footer mode--passive">
-                    <div class="row justify-content-center">
-                      <div class="col-10 text-right">
-                        <p id="totalText" class="title title--sm letter-spacing-1x font-weight-medium">
-                          Kişi sayısı
-                        </p>
-                        <p class="title">Toplam <span id="spanTotalPrice" class="font-size-4xl font-weight-medium">0 €</span></p>
-                        <input type="hidden" id="inpTotalPrice" />
-                        <a class="btn btn--default mt-4">
-                          Devam Et
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        </div>
+        <div class="add-room-section d-none">
+          <div class="modal-header">
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <i class="circle-plus-icon"></i>
+                <p class="title--sm font-weight-medium letter-spacing-1x">Rezervasyonunuza Oda Ekleyin</p>
+                <p class="description font-weight-light mt-3">
+                  Rezervasyonunuzu diğer misafirlerimizle birlikte olmak istiyorsanız, lütfen aşağıdaki alanları
+                  doldurun.
+                </p>
               </div>
             </div>
           </div>
-          <div class="special-day-section d-none">
-            <div class="modal-header">
-              <div class="row">
-                <div class="col-12">
-                  <i class="goblet-icon bg-before-goblet"></i>
-                  <p class="title--sm font-weight-medium letter-spacing-1x">Özel Gününüz mü?</p>
-                </div>
-              </div>
-            </div>
-            <div class="modal-main">
-              <div class="row justify-content-center">
-                <div class="col-7">
-                  <ul class="special-day-list">
-                    <li class="special-day-list-item">
-                      <a class="special-day-list-link">
-                        DOĞUM GÜNÜ
-                      </a>
-                    </li>
-                    <li class="special-day-list-item">
-                      <a class="special-day-list-link">
-                        BALAYI
-                      </a>
-                    </li>
-                    <li class="special-day-list-item">
-                      <a class="special-day-list-link">
-                        EVLİLİK YILDÖNÜMÜ
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer mode--passive">
-              <div class="row justify-content-center">
-                <div class="col-12 text-center">
-                  <a class="btn btn--default">
-                    Devam Et
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="add-room-section d-none">
-            <div class="modal-header">
-              <div class="row justify-content-center">
-                <div class="col-12">
-                  <i class="circle-plus-icon"></i>
-                  <p class="title--sm font-weight-medium letter-spacing-1x">Rezervasyonunuza Oda Ekleyin</p>
-                  <p class="description font-weight-light mt-3">
-                    Rezervasyonunuzu diğer misafirlerimizle birlikte olmak istiyorsanız, lütfen aşağıdaki alanları doldurun.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="modal-main">
-              <div class="row justify-content-center room-section">
-                <div class="col-12">
-                  <label for="inpRoomNo" class="title--xs text-color-gray ls-1">
-                    Oda numarası
-                  </label>
+          <div class="modal-main">
+            <div class="row justify-content-center room-section">
+              <div class="col-12">
+                <label for="inpRoomNo" class="title--xs text-color-gray ls-1">
+                  Oda numarası
+                </label>
 
-                  <input id="inpRoomNo" class="form-control" placeholder="3794" />
-                </div>
+                <input id="inpRoomNo" class="form-control" placeholder="3794" />
               </div>
-              <div class="row justify-content-center">
-                <div class="col-12">
-                  <label class="title--xs text-color-gray ls-1 border-bottom">
-                    Kişi sayısı
-                  </label>
-                </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <label class="title--xs text-color-gray ls-1 border-bottom">
+                  Kişi sayısı
+                </label>
               </div>
-              <div class="row align-items-center justify-content-center">
-                <div class="col-6">
-                  <h4 class="title--sm">Yetişkin</h4>
-                </div>
-                <div class="col-5">
-                  <div class="minus-plus-block">
-                    <span class="minus-icon" data-prop="minus"> </span>
-                    <input id="inpAdultCountReservation" value="0" data-price="15" data-max="6" />
-                    <span class="plus-icon" data-prop="plus"> </span>
-                  </div>
-                </div>
+            </div>
+            <div class="row align-items-center justify-content-center">
+              <div class="col-6">
+                <h4 class="title--sm">Yetişkin</h4>
               </div>
-              <div class="row align-items-center justify-content-center">
-                <div class="col-6">
-                  <h4 class="title--sm">Çocuk <span class="font-size-sm font-weight-light">5-12 Yaş</span></h4>
-                </div>
-                <div class="col-5">
-                  <div class="minus-plus-block">
-                    <span class="minus-icon" data-prop="minus"> </span>
-                    <input id="inpChildCountReservation" value="0" data-price="10" data-max="6" />
-                    <span class="plus-icon" data-prop="plus"> </span>
-                  </div>
-                </div>
-              </div>
-              <div class="row align-items-center justify-content-center">
-                <div class="col-6">
-                  <h4 class="title--sm">Bebek <span class="font-size-sm font-weight-light">0- Yaş</span></h4>
-                </div>
-                <div class="col-5">
-                  <div class="minus-plus-block">
-                    <span class="minus-icon" data-prop="minus"> </span>
-                    <input id="inpBabyCountReservation" value="0" data-price="2" data-max="4" />
-                    <span class="plus-icon" data-prop="plus"> </span>
-                  </div>
+              <div class="col-5">
+                <div class="minus-plus-block">
+                  <span class="minus-icon" data-prop="minus"> </span>
+                  <input id="inpAdultCountReservation" value="0" data-price="15" data-max="6" />
+                  <span class="plus-icon" data-prop="plus"> </span>
                 </div>
               </div>
             </div>
-            <div class="modal-footer mode--passive">
-              <div class="row justify-content-center">
-                <div class="col-12 text-right">
-                  <a class="btn btn--default">
-                    Devam Et
-                  </a>
+            <div class="row align-items-center justify-content-center">
+              <div class="col-6">
+                <h4 class="title--sm">Çocuk <span class="font-size-sm font-weight-light">5-12 Yaş</span></h4>
+              </div>
+              <div class="col-5">
+                <div class="minus-plus-block">
+                  <span class="minus-icon" data-prop="minus"> </span>
+                  <input id="inpChildCountReservation" value="0" data-price="10" data-max="6" />
+                  <span class="plus-icon" data-prop="plus"> </span>
                 </div>
+              </div>
+            </div>
+            <div class="row align-items-center justify-content-center">
+              <div class="col-6">
+                <h4 class="title--sm">Bebek <span class="font-size-sm font-weight-light">0- Yaş</span></h4>
+              </div>
+              <div class="col-5">
+                <div class="minus-plus-block">
+                  <span class="minus-icon" data-prop="minus"> </span>
+                  <input id="inpBabyCountReservation" value="0" data-price="2" data-max="4" />
+                  <span class="plus-icon" data-prop="plus"> </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer mode--passive">
+            <div class="row justify-content-center">
+              <div class="col-12 text-right">
+                <a class="btn btn--default">
+                  Devam Et
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <div id="successModal" class="modal modal--success">
-      <div class="modal-body">
-        <div class="modal-header">
-          <i class="success-icon"></i>
-          <p class="description text-center"><span class="font-weight-medium font-size-lg">Grasias Restoran</span> için Rezervasyonunuz <span class="font-weight-medium">Oda 3879'a eklenerek</span> oluşturulmuştur.</p>
-        </div>
-        <div class="modal-main">
-          <div class="row justify-content-center">
-            <div class="col-auto">
-              <div class="bg-before-clock">
-                <p class="description">
-                  <span class="font-weight-medium font-size-xl">
-                    21:30
-                  </span>
-                  da
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-auto">
-              <div class="bg-before-user">
-                <p class="description">
-                  <span class="font-weight-medium font-size-xl">
-                    4+1
-                  </span>
-                  kişilik
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-10">
-              <div class="border-top">
-                <h2 class="font-weight-medium font-size-4xl text-center">
-                  90€
-                </h2>
-              </div>
+  <div id="successModal" class="modal modal--success">
+    <div class="modal-body">
+      <div class="modal-header">
+        <i class="success-icon"></i>
+        <p class="description text-center"><span class="font-weight-medium font-size-lg">Grasias Restoran</span> için
+          Rezervasyonunuz <span class="font-weight-medium">Oda 3879'a eklenerek</span> oluşturulmuştur.</p>
+      </div>
+      <div class="modal-main">
+        <div class="row justify-content-center">
+          <div class="col-auto">
+            <div class="bg-before-clock">
+              <p class="description">
+                <span class="font-weight-medium font-size-xl">
+                  21:30
+                </span>
+                da
+              </p>
             </div>
           </div>
         </div>
-        <div class="modal-footer text-center">
-          <a class="btn btn--default">
-            Tamam
-          </a>
+        <div class="row justify-content-center">
+          <div class="col-auto">
+            <div class="bg-before-user">
+              <p class="description">
+                <span class="font-weight-medium font-size-xl">
+                  4+1
+                </span>
+                kişilik
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-10">
+            <div class="border-top">
+              <h2 class="font-weight-medium font-size-4xl text-center">
+                90€
+              </h2>
+            </div>
+          </div>
         </div>
       </div>
+      <div class="modal-footer text-center">
+        <a class="btn btn--default">
+          Tamam
+        </a>
+      </div>
     </div>
+  </div>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/reservation.js"></script>
-    <script>
-      $('.offset-modal').addClass('is-shown');
-    </script>
-  </body>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/reservation.js"></script>
+
+</body>
+
 </html>
