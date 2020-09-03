@@ -62,11 +62,13 @@
 
 form {
   &.has-error {
-    input {
+
+    input,
+    select {
       &:not(:valid) {
         border-color: $colors--red;
 
-        + .invalid-feedback {
+        +.invalid-feedback {
           display: block;
         }
       }
@@ -92,7 +94,7 @@ form {
     z-index: -1;
     left: -9999px;
 
-    + label {
+    +label {
       $bgSize: 2.2125rem;
 
       position: relative;
@@ -115,7 +117,7 @@ form {
     }
 
     &:checked {
-      + label {
+      +label {
         &::before {
           background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zm0 32c8.823 0 16 7.178 16 16v352c0 8.822-7.177 16-16 16H48c-8.822 0-16-7.178-16-16V80c0-8.822 7.178-16 16-16h352m-34.301 98.293l-8.451-8.52c-4.667-4.705-12.265-4.736-16.97-.068l-163.441 162.13-68.976-69.533c-4.667-4.705-12.265-4.736-16.97-.068l-8.52 8.451c-4.705 4.667-4.736 12.265-.068 16.97l85.878 86.572c4.667 4.705 12.265 4.736 16.97.068l180.48-179.032c4.704-4.667 4.735-12.265.068-16.97z'%3E%3C/path%3E%3C/svg%3E");
         }
@@ -124,28 +126,29 @@ form {
   }
 
   #chkHaveFoodAllergy {
-    ~ textarea {
+    ~textarea {
       transition: all 300ms;
       padding: 1rem;
       line-height: 1.37;
     }
 
     &:not(:checked) {
-      ~ textarea {
+      ~textarea {
         max-height: 0;
         opacity: 0;
       }
     }
   }
+
   #chkHaveFoodAllergyAddRoom {
-    ~ textarea {
+    ~textarea {
       transition: all 300ms;
       padding: 1rem;
       line-height: 1.37;
     }
 
     &:not(:checked) {
-      ~ textarea {
+      ~textarea {
         max-height: 0;
         opacity: 0;
       }
